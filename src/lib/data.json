@@ -16,5 +16,11 @@
     "title": "Growing Radius",
     "date": "12-10-24",
     "tagline": "3_growradius"
+  },
+  {
+    "id": 3,
+    "title": "Scatterplots",
+    "date": "12-11-24",
+    "tagline": "4_scatterplot"
   }
 ]

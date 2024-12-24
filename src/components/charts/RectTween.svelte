@@ -1,19 +1,13 @@
 <script>
-    import { text } from "@sveltejs/kit";
   import { Tween } from "svelte/motion";
+  // import { tweened } from 'svelte/motion'
   let { data, i, fill="#fff"} = $props()
 
-  $inspect(data)
+  $inspect('td',data)
   const position = (x, y) => `transform: translate(${x}px, ${y}px)`;
 
-  const textTween = new Tween(
-    data.map((d) => d.width),
-    { duration: 600 }
-  );
-
-  $effect(() => {
-    textTween.set(data.map((d) => d.width));
-  })
+const tweenText = new Tween(data.map(d=>d.width))
+ 
 </script>
 
 {#each data as d, i}
@@ -29,7 +23,7 @@ style={position(d.width + 25, +d.y + 24.1)}
 fill="red"
 text-anchor="start"
 class="myText"
->{$textTween[i]}
+>{tweenText[i]}
 </text>
 {/each}
 

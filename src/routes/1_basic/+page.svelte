@@ -1,18 +1,19 @@
 <script>
 import { fly, fade } from 'svelte/transition';
-import { Tween } from 'svelte/motion';
+
 import * as d3 from 'd3'
 import Circle1 from '../../components/charts/Circle1.svelte';
 import Rect1 from '../../components/charts/Rect1.svelte';
 import RectTween from '../../components/charts/RectTween.svelte';
 import ChartContainer from '../../components/ChartContainer.svelte';
+let tweenName = $state('')
   let { data } = $props()
   let data1 = data.data1
   $inspect(data1)
   let data2 = data.data2
   let data3 = data.data3
   let data4 = data.data4
-  let tweenedData = $state(data.data4)
+  let tweenedData = $state([])
   $inspect(data2)
 
   let width = 600
@@ -29,6 +30,13 @@ import ChartContainer from '../../components/ChartContainer.svelte';
 
   $effect(() => {
     setInterval(changeData, 2100)
+    tweenedData = data4.map(item => {
+      return {
+        ...item,
+        height: +item.height,
+        width:  Math.floor(Math.random() * item.width)
+      }
+    })
   })
 
   function changeData() {
@@ -45,10 +53,9 @@ import ChartContainer from '../../components/ChartContainer.svelte';
     tweenedData = data4.map(item => {
       return {
         ...item,
-        width: item.width * Math.random()
+        width: Math.floor(Math.random() * item.width)
       }
     })
-  //  textTweened = new Tween(rectData.map(d => d.width), { duration: 800})
   }
 
  
