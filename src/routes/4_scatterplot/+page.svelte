@@ -137,7 +137,7 @@
     height: 10px;
     border: 1px solid #fff;
     transition:
-      left 300ms ease,
-      top 300ms ease;
+      left 320ms ease,
+      top 320ms ease;
   }
 </style>
