@@ -1,14 +1,14 @@
 <script>
-  import * as d3 from 'd3'
-  import Axis_4 from '../../components/charts/Axis_4.svelte';
-  import { fly } from 'svelte/transition';
+    import * as d3 from 'd3'
+    import { fly } from 'svelte/transition';
     import Labels_4 from '../../components/charts/Labels_4.svelte';
     import RadialLegend_4 from '../../components/charts/RadialLegend_4.svelte';
     import CategoryLegend from '../../components/charts/CategoryLegend.svelte';
     import Quadtree from '../../components/utilities/Quadtree.svelte';
-  let { data } = $props()
+    import Axis_4 from '../../components/charts/Axis_4.svelte';
+    let { data } = $props()
 
-  let data2 = data.data
+    let data2 = data.data
 
   let updatedData = data2.map(d => {
     return {
@@ -23,7 +23,6 @@
   const cons = new Set(updatedData.map(d => d.continent))
   cons.delete(undefined)
   const continents = Array.from(cons)
-
   
   let width = 800
   const height = 500;

@@ -1,6 +1,6 @@
 <script>
   import { fly } from 'svelte/transition';
-  import * as d3 from 'd3'
+
 
 </script>
 
