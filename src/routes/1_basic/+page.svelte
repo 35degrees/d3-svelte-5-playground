@@ -29,7 +29,7 @@ let tweenName = $state('')
   $inspect(optionState)
 
   $effect(() => {
-    setInterval(changeData, 2100)
+    setInterval(changeData, 2000)
     tweenedData = data4.map(item => {
       return {
         ...item,
